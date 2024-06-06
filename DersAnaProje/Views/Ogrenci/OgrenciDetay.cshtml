@@ -1,0 +1,86 @@
+﻿@model OkulViewModels
+
+@{
+    Layout = null;
+    @*Ogrenci og = (Ogrenci)ViewData["school"];
+    Ogrenci ogrt = (Ogretmen)ViewData["school"];*@
+}
+
+<!DOCTYPE html>
+@*
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>OgrenciDetay</title>
+</head>
+<body>
+    <h3>Öğrenci Detayları</h3>
+    <h2>ViewData İle Gelen Öğrenci Bilgileri</h2>
+    @if (ViewData["ogrenci"]!=null)
+    {
+        @*<p>Ad:@og.Ad </p>
+        <p>Ad:@(((DersAnaProje.Models.Ogrenci)ViewData["school"]).Ad) </p>
+    }
+    else
+    {
+        <p>Öğrenci Bulunamadı</p>
+    }
+
+    <h2>ViewBag İle Gelen Öğrenci Bilgileri</h2>
+    @if (ViewBag.student != null)
+    {
+            <p>Ad:@ViewBag.student.Ad </p>
+    }
+    else
+    {
+            <p>Öğrenci Bulunamadı</p>
+    }
+
+    <h2>Model İle Gelen Öğrenci Bilgileri</h2>
+    <p> Ad:@Model.Ad</p>
+
+    <h2>ViewBag İle Gelen Öğretmen Bilgileri</h2>
+    @if (ViewBag.ogretmen.Ad != null)
+    {
+           <p>Ad:@ViewBag.ogretmen.Ad </p>
+    }
+    else
+    {
+                <p>Öğrenci Bulunamadı</p>
+    }
+    
+     <h2>Model İle Gelen Okul Bilgileri</h2>
+     <h3>Öğrenci Bilgileri</h3>
+    @if (Model.Item1 != null)
+    {
+        <p>Ogrenci Adı: @Model.Item1.Ad</p>
+        <p>Ogrenci Soyadı: @Model.Item1.Soyad</p>
+        <p>Ogrenci Numarası: @Model.Item1.Numara</p>
+    }
+
+    <h3>Öğretmen Bilgileri</h3>
+    @if (Model.Item2 != null)
+    {
+        <p>Ogretmen Adı: @Model.Item2.Ad</p>
+        <p>Ogretmen Soyadı: @Model.Item2.Soyad</p>
+        <p>Ogretmen ID: @Model.Item2.OgretmenId</p>
+    }
+
+
+     <h3>Öğrenci Bilgileri</h3>
+     @Model.ogrenci.Ad
+
+    <h3>Öğretmen Bilgileri</h3>
+    @Model.ogretmen.Ad
+
+    <h3>Ders Bilgileri</h3>
+    @Model.ders.DersAd
+    
+
+</body>
+</html>
+
+
+
+@* Yorum satırı bu şekilde yapılabilir.*@
+    

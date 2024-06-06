@@ -1,0 +1,32 @@
+﻿@model Ogrenci
+@{
+    ViewData["Title"] = "OgrenciDersleri";
+}
+
+<h1>@Model.Ad @Model.Soyad - Aldığı Dersler</h1>
+@if (Model.OgrenciDersler != null && Model.OgrenciDersler.Any())
+{
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Ders Kodu</th>
+                <th>Ders Adı</th>
+                <th>Kredi</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ogrDers in Model.OgrenciDersler)
+            {
+                <tr>
+                    <td>@ogrDers.Ders?.DersKodu</td>
+                    <td>@ogrDers.Ders?.DersAd</td>
+                    <td>@ogrDers.Ders?.Kredi</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Bu öğrenci henüz herhangi bir ders almamış.</p>
+}

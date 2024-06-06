@@ -1,0 +1,31 @@
+﻿@model Ders
+@{
+    ViewData["Title"] = "AddDers";
+}
+<div class="container d-flex justify-content-center my-5">
+<div class="card" style="width: 50%; background-color: #e3f2fd;">
+    <div class="card-body">
+        <h2 class="card-title text-center">Ders Ekleme İşlemi</h2>
+        <form asp-action="AddDers" asp-controller="Ders" method="post">
+            <div class="form-group">
+                <label for="DersKodu">Ders Kodu</label>
+                <input asp-for="DersKodu" class="form-control" id="DersKodu" />
+            </div>
+
+            <div class="form-group">
+                <label for="DersAd">Ders Adı</label>
+                <input asp-for="DersAd" class="form-control" id="DersAd" />
+            </div>
+
+            <div class="form-group">
+                <label for="Kredi">Kredi</label>
+                <input asp-for="Kredi" class="form-control" id="Kredi" />
+            </div>
+
+             <div class="form-group text-center mt-4">
+                 <button type="submit" class="btn btn-primary">Kaydet</button>
+             </div>
+        </form>
+    </div>
+</div>
+</div>

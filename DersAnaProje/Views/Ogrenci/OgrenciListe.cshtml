@@ -1,0 +1,28 @@
+﻿@model List<DersAnaProje.Models.Ogrenci>
+@{
+    ViewData["Title"] = "Öğrenci Listesi";
+    ViewData["Desc"] = "Tüm okulda okuyan öğrencilerin listesi";
+}
+
+  
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>Numara</th>
+        </tr>
+    </thead>
+    <tbody>
+            @foreach (var ogr in Model)
+            {
+                <tr>
+                      <td>@ogr.Ad</td>
+                      <td>@ogr.Soyad</td>
+                      <td>@ogr.Numara</td>
+                </tr>
+            }
+    </tbody>
+</table>
+

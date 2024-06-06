@@ -1,0 +1,37 @@
+﻿@model IEnumerable<DersAnaProje.Models.Ders>
+@{
+    ViewData["Title"] = "Öğrenci İçin Ders Ekle";
+    var studentId = ViewBag.StudentId;
+}
+
+<div class="container my-5">
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h2 class="mb-0">Öğrenci İçin Ders Ekle</h2>
+        </div>
+        <div class="card-body">
+            <form asp-action="AddDersForOgrenci" asp-controller="Student" method="post">
+                <input type="hidden" name="studentId" value="@studentId" />
+                <div class="form-group">
+                    <label for="dersIds" class="form-label">Ders Seçin:</label>
+                    <div class="row">
+                        @foreach (var ders in Model)
+                        {
+                            <div class="col-md-6 mb-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <input type="checkbox" name="dersIds" value="@ders.Dersid" id="ders-@ders.Dersid" class="form-check-input" />
+                                        <label for="ders-@ders.Dersid" class="form-check-label">@ders.DersAd</label>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="form-group text-center mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg">Ekle</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

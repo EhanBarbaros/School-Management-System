@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Ders>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center">Ders İşlemleri</h1>
+<h2>Ders Listesi</h2>
+<a class="btn btn-outline-primary" asp-action="Index" asp-controller="Student">Ögrenciler</a> <a class="btn btn-outline-primary" asp-action="AddDers" asp-controller="Ders">Ders Ekle</a>
+
+<table class="table table-striped table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>Ders Kodu</th>
+            <th>Ders Adı</th>
+            <th class="text-center">Kredi</th>
+            <th class="text-center">İşlemler</th>
+            <th class="text-center">Dersi Alan Öğrenciler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ders in Model)
+        {
+            <tr>
+                <td>@ders.DersKodu</td>
+                <td>@ders.DersAd</td>
+                <td class="text-center">@ders.Kredi</td>
+                <td class="text-center">
+                    <a class="btn btn-sm btn-outline-success" href="/Ders/EditDers/@ders.Dersid">Düzenle</a>
+                    <a onclick="return confirm('Emin misiniz?')" class="btn btn-sm btn-outline-danger" href="/Ders/DeleteDers/@ders.Dersid">Sil</a>
+                </td>
+                <td class="text-center">
+                    <a class="btn btn-sm btn-outline-info" href="/Ders/KayitliOgrenciler/@ders.Dersid">Gör</a>
+                 </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

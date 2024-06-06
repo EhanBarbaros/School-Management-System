@@ -1,0 +1,30 @@
+﻿@model Ders
+@{
+    ViewData["Title"] = "KayitliOgrenciler";
+}
+
+<h1 class="text-center my-4">@Model.DersAd - Kayıtlı Öğrenciler</h1>
+
+<table class="table table-striped table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>Numara</th>
+            <th>Ad</th>
+            <th>Soyad</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.OgrenciDersler != null)
+        {
+            @foreach (var ogrenciDers in Model.OgrenciDersler)
+            {
+                <tr>
+                    <td>@ogrenciDers.Ogrenci?.Numara</td>
+                    <td>@ogrenciDers.Ogrenci?.Ad</td>
+                    <td>@ogrenciDers.Ogrenci?.Soyad</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
