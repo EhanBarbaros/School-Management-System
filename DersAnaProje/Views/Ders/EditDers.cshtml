@@ -3,19 +3,32 @@
     ViewData["Title"] = "EditDers";
 }
 
-<h1>Edit Ders</h1>
 
-
-<form asp-action="EditDers" asp-controller="Ders" method="post">
-    <label> Ders Kodu</label>
-    <input asp-for="DersKodu" />
-
-    <label> Ders Adı</label>
-    <input asp-for="DersAd" />
-
-    <label>Kredi</label>
-    <input asp-for="Kredi" />
-
-    <input asp-for="Dersid" type="hidden" />
-    <input type="submit" value="Kaydet" />
-</form>
+            <h1 class="text-center mb-4">Ders Düzenle</h1>
+            <form asp-action="EditDers" asp-controller="Ders" method="post" class="needs-validation" novalidate>
+                <div class="mb-3">
+                    <label for="DersKodu" class="form-label">Ders Kodu</label>
+                    <input asp-for="DersKodu" class="form-control" id="DersKodu" required />
+                    <div class="invalid-feedback">
+                        Lütfen ders kodunu giriniz.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="DersAd" class="form-label">Ders Adı</label>
+                    <input asp-for="DersAd" class="form-control" id="DersAd" required />
+                    <div class="invalid-feedback">
+                        Lütfen ders adını giriniz.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="Kredi" class="form-label">Kredi</label>
+                    <input asp-for="Kredi" class="form-control" id="Kredi" required />
+                    <div class="invalid-feedback">
+                        Lütfen krediyi giriniz.
+                    </div>
+                </div>
+                <input asp-for="Dersid" type="hidden" />
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-danger btn-lg">Kaydet</button>
+                </div>
+            </form>

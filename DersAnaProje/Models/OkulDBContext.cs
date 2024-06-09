@@ -5,16 +5,13 @@ namespace DersAnaProje.Models
 {
     public class OkulDBContext : DbContext
     {
+        public OkulDBContext(DbContextOptions<OkulDBContext> options) : base(options)
+        {
+        }
+
         public DbSet<Ogrenci> Ogrenciler { get; set; }
         public DbSet<Ders> Dersler { get; set; }
-
         public DbSet<OgrenciDers> OgrenciDersler { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("Data Source=DEDUSTTER4151;Initial Catalog= OkulDbMvc;Integrated Security = True;TrustServerCertificate=True;");
-        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -34,8 +31,8 @@ namespace DersAnaProje.Models
             modelBuilder.Entity<OgrenciDers>().HasKey(od => new { od.Ogrenciid, od.Dersid });
             modelBuilder.Entity<OgrenciDers>().HasOne(od => od.Ogrenci).WithMany(o => o.OgrenciDersler).HasForeignKey(od => od.Ogrenciid);
             modelBuilder.Entity<OgrenciDers>().HasOne(od => od.Ders).WithMany(d => d.OgrenciDersler).HasForeignKey(od => od.Dersid);
-
-
         }
+
+
     }
 }

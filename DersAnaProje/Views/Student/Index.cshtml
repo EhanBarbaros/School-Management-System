@@ -4,39 +4,52 @@
     ViewData["Title"] = "Index";
 }
 
-<h1 style="text-align:center">Öğrenci İşlemleri</h1>
+<div class="text-center mb-4">
+    <h1 class="display-4">Öğrenci İşlemleri</h1>
+    <p class="lead">Bu sayfada öğrencileri görüntüleyebilir, ekleyebilir, düzenleyebilir ve silebilirsiniz.</p>
+</div>
 
+<div class="d-flex justify-content-between mb-4">
+    <h2 class="h4">Öğrenci Listesi</h2>
+    <a class="btn btn-danger" asp-action="AddStudent" asp-controller="Student">
+        <i class="fas fa-plus"></i> Öğrenci Ekle
+    </a>
+</div>
 
-<h2>Öğrenci Listesi</h2>
-<a class="btn btn-outline-primary" asp-action="AddStudent" asp-controller="Student" >Öğrenci Ekle</a>
-<table class="table table-striped table-hover">
-    <thead>
-        <tr>
-            <th>Numara</th>
-            <th>Ad</th>
-            <th>Soyad</th>
-            <th>İşlemler</th>
-            <th>Aldığı Dersler</th>
+<table class="table table-striped table-bordered table-hover border-danger">
+    <thead class="thead-dark text-danger">
+        <tr class="text-center">
+            <th scope="col">Numara</th>
+            <th scope="col">Ad</th>
+            <th scope="col">Soyad</th>
+            <th scope="col">İşlemler</th>
+            <th scope="col">Aldığı Dersler</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody >
         @foreach (var ogr in Model)
         {
-            <tr>
+            <tr class="text-danger">
                 <td>@ogr.Numara</td>
                 <td>@ogr.Ad</td>
                 <td>@ogr.Soyad</td>
-                <td>
-                    <a class="btn btn-sm btn-outline-success" href="/Student/EditStudent/@ogr.Ogrenciid">Düzenle</a> 
-                    <a onclick="return confirm('Emin misiniz?')" class="btn btn-sm btn-outline-danger" href="/Student/DeleteStudent/@ogr.Ogrenciid">Silme</a>
+                <td class="text-center">
+                    <a class="btn btn-sm btn-success" href="/Student/EditStudent/@ogr.Ogrenciid">
+                        <i class="fas fa-edit"></i> Düzenle
+                    </a>
+                    <a onclick="return confirm('Emin misiniz?')" class="btn btn-sm btn-danger" href="/Student/DeleteStudent/@ogr.Ogrenciid">
+                        <i class="fas fa-trash-alt"></i> Sil
+                    </a>
                 </td>
-                <td>
-                    <a class="btn btn-sm btn-outline-info" href="/Student/OgrenciDersleri/@ogr.Ogrenciid">Aldığı Dersler</a>
-                    <a class="btn btn-sm btn-outline-primary" href="/Student/AddDersForOgrenci?studentId=@ogr.Ogrenciid">Ders Ekle</a>
+                <td class="text-center">
+                    <a class="btn btn-sm btn-info" href="/Student/OgrenciDersleri/@ogr.Ogrenciid">
+                        <i class="fas fa-book"></i> Aldığı Dersler
+                    </a>
+                    <a class="btn btn-sm btn-primary" href="/Student/AddDersForOgrenci?studentId=@ogr.Ogrenciid">
+                        <i class="fas fa-plus"></i> Ders Ekle
+                    </a>
                 </td>
-
             </tr>
         }
     </tbody>
 </table>
-

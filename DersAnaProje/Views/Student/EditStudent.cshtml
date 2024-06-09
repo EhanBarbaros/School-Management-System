@@ -3,18 +3,32 @@
     ViewData["Title"] = "EditStudent";
 }
 
-<h1>EditStudent</h1>
+<h1 class="text-center mb-4">Öğrenci Düzenle</h1>
 
-<form asp-action="EditStudent" asp-controller="Student" method="post">
-    <label> Ad</label>
-    <input asp-for="Ad" />
-
-    <label> Soyad</label>
-    <input asp-for="Soyad" />
-
-    <label>Numara</label>
-    <input asp-for="Numara" />
-
-    <input asp-for="Ogrenciid" type="hidden" />     
-    <input type="submit" value="Kaydet" />
+<form asp-action="EditStudent" asp-controller="Student" method="post" class="needs-validation" novalidate>
+    <div class="mb-3">
+        <label for="Ad" class="form-label">Ad</label>
+        <input asp-for="Ad" class="form-control" id="Ad" required />
+        <div class="invalid-feedback">
+            Lütfen adınızı giriniz.
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="Soyad" class="form-label">Soyad</label>
+        <input asp-for="Soyad" class="form-control" id="Soyad" required />
+        <div class="invalid-feedback">
+            Lütfen soyadınızı giriniz.
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="Numara" class="form-label">Numara</label>
+        <input asp-for="Numara" class="form-control" id="Numara" required />
+        <div class="invalid-feedback">
+            Lütfen numaranızı giriniz.
+        </div>
+    </div>
+    <input asp-for="Ogrenciid" type="hidden" />
+    <div class="d-grid">
+        <button type="submit" class="btn btn-danger btn-lg">Kaydet</button>
+    </div>
 </form>

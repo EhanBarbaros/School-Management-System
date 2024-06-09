@@ -65,7 +65,8 @@ internal class Program
 //Change Tracking db set üzerinde insert update gibi işlemelri izeler ve added updated gibi state ayarlar.
 
 //Solid prensiplerine bak 
-//Dependency injection
+//Dependency injection   -----
+
 //Clean arcitehcture
 //Web api lere bak
 

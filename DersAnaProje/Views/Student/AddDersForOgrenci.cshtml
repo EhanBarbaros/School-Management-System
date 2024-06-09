@@ -4,9 +4,7 @@
     var studentId = ViewBag.StudentId;
 }
 
-<div class="container my-5">
-    <div class="card">
-        <div class="card-header bg-primary text-white">
+        <div class="card-header text-center">
             <h2 class="mb-0">Öğrenci İçin Ders Ekle</h2>
         </div>
         <div class="card-body">
@@ -19,7 +17,7 @@
                         {
                             <div class="col-md-6 mb-3">
                                 <div class="card">
-                                    <div class="card-body">
+                                    <div class="card-body bg-danger text-dark">
                                         <input type="checkbox" name="dersIds" value="@ders.Dersid" id="ders-@ders.Dersid" class="form-check-input" />
                                         <label for="ders-@ders.Dersid" class="form-check-label">@ders.DersAd</label>
                                     </div>
@@ -29,9 +27,7 @@
                     </div>
                 </div>
                 <div class="form-group text-center mt-4">
-                    <button type="submit" class="btn btn-primary btn-lg">Ekle</button>
+                    <button type="submit" class="btn btn-danger btn-lg">Ekle</button>
                 </div>
             </form>
         </div>
-    </div>
-</div>
